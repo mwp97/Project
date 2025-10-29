@@ -1,10 +1,6 @@
 {
-    "versionCode": 9977,
-    "versionName": "v99.77",
+    "versionCode": 0000,
+    "versionName": "v00.00",
     "changelog": ["Pembaruan masalah bug", "Perubahan channel", "Perubahan Tampilan Splash", "Atau juga Bisa download di MENU WEBSITE", "Terima Kasih", "By Admin.."],
     "downloadUrl": "https://sfile.mobi/6si5tZbmM0i"
-},
-	"forceVersionCode": 9977,
-	"isIgnorable": true,
-	}
 }
