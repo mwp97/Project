@@ -6,8 +6,5 @@
 },
 	"forceVersionCode": 9977,
 	"isIgnorable": true,
-	"config": {
-		"key1": "val1",
-		"key2": "val2"
 	}
 }
