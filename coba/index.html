@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyXL Packages</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            /* Ganti 'background.png' dengan path gambar PNG Anda */
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            padding: 20px;
+            color: #007BFF; /* Warna teks biru */
+        }
+        
+        /* Toolbar (Bagian atas) */
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .time {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .network {
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .address-bar {
+            flex-grow: 1;
+            margin: 0 15px;
+        }
+        
+        .address-bar input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .action-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .action-icons i {
+            font-size: 24px;
+            color: #555;
+        }
+        
+        /* Kartu Paket MyXL */
+        .package-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .warning-icon {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-size: 24px;
+            color: #FFCC00;
+        }
+        
+        .package-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: 40px;
+            color: #007BFF; /* Biru */
+        }
+        
+        .package-desc {
+            font-size: 16px;
+            margin-left: 40px;
+            margin-top: 15px;
+            color: #007BFF; /* Biru */
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <div class="time">2:00</div>
+        <div class="address-bar">
+            <input type="text" value="content://com.miui.browser" readonly>
+        </div>
+        <div class="network">4G <span>72</span></div>
+        <div class="action-icons">
+            <i>&#x2795;</i> <!-- Plus icon -->
+            <i>&#x1F50D;</i> <!-- Magnifying glass icon -->
+            <i>&#x2026;</i> <!-- Menu dots icon -->
+        </div>
+    </div>
+
+    <!-- Kartu Paket 1 -->
+    <div class="package-card">
+        <div class="warning-icon">⚠️</div>
+        <div class="package-title">MyXL</div>
+        <div class="package-desc">Paket XL Xtra Combo Plus</div>
+    </div>
+
+    <!-- Kartu Paket 2 -->
+    <div class="package-card">
+        <div class="warning-icon">⚠️</div>
+        <div class="package-title">MyXL</div>
+        <div class="package-desc">Paket XL Xtra Combo Plus ( OLD )</div>
+    </div>
+
+    <!-- Kartu Paket 3 -->
+    <div class="package-card">
+        <div class="warning-icon">⚠️</div>
+        <div class="package-title">MyXL</div>
+        <div class="package-desc">Paket XL Xtra Combo Plus ( GIFT )</div>
+    </div>
+
+    <!-- Kartu Paket 4 -->
+    <div class="package-card">
+        <div class="warning-icon">⚠️</div>
+        <div class="package-title">MyXL</div>
+        <div class="package-desc">Paket XL Xtra Combo Plus ( CHOOSE )</div>
+    </div>
+</body>
+</html>
