@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APLIKASI IJO GAMES</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* VIDEO BACKGROUND */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* Lapisan tipis agar teks lebih terbaca */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.25);
+            z-index: -1;
+        }
+
+        .app-wrapper {
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        /* HEADER HITAM + TEKS RGB */
+        .header {
+            background: #000;
+            padding: 18px 10px;
+            text-align: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .header-title {
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: rgbColor 3s linear infinite;
+        }
+
+        @keyframes rgbColor {
+            0%   { color: #ff0000; }
+            33%  { color: #00ff00; }
+            66%  { color: #0000ff; }
+            100% { color: #ff0000; }
+        }
+
+        .content {
+            padding: 20px 16px 40px;
+        }
+
+        /* TOMBOL ADMIN WHATSAPP */
+        .admin-btn-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 16px 0 22px;
+        }
+
+        .admin-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #e0e0e0;
+            color: #555;
+            border-radius: 18px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+        }
+
+        /* KARTU LIST */
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            /* 15% transparan (85% opacity) */
+            background: rgba(173, 216, 230, 0.85);
+            border-radius: 12px;
+            padding: 12px 14px;
+            text-decoration: none;
+            color: #222;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.1s ease, box-shadow 0.1s ease,
+                background 0.1s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            background: rgba(173, 216, 230, 0.95);
+        }
+
+        .card-logo {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+        .card-text-main {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .card-text-sub {
+            font-size: 0.9rem;
+            color: #6d6d6d;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 26px;
+            font-size: 0.85rem;
+            color: #808080;
+        }
+
+        .footer-line {
+            height: 1px;
+            background: #d0d0d0;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video background m3u8 -->
+    <video id="bg-video" autoplay muted loop playsinline></video>
+    <div class="bg-overlay"></div>
+
+    <div class="app-wrapper">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-title">APLIKASI IJO GAMES</div>
+        </header>
+
+        <main class="content">
+            <!-- TOMBOL WHATSAPP ADMIN -->
+            <div class="admin-btn-wrapper">
+                <!-- Ganti nomor WA di sini -->
+                <a class="admin-btn"
+                   href="https://wa.me/6281234567890"
+                   target="_blank"
+                   rel="noopener">
+                    klik disini (admin)
+                </a>
+            </div>
+
+            <!-- LIST KARTU -->
+            <div class="card-list">
+                <!-- Card 1 -->
+                <a class="card"
+                   href="https://contoh-link-1.com"
+                   target="_blank"
+                   rel="noopener">
+                    <div class="card-logo">
+                        <!-- Ganti src dengan link logo sendiri -->
+                        <img src="https://i.ibb.co/9VPSz77/smiley.png"
+                             alt="Dynamic SSH">
+                    </div>
+                    <div>
+                        <div class="card-text-main">Dynamic SSH</div>
+                        <div class="card-text-sub">/create-ssh-ssl</div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a class="card"
+                   href="https://contoh-link-2.com"
+                   target="_blank"
+                   rel="noopener">
+                    <div class="card-logo">
+                        <img src="https://i.ibb.co/6Hc8qgM/shield.png"
+                             alt="SSH Dropbear">
+                    </div>
+                    <div>
+                        <div class="card-text-main">SSH Dropbear</div>
+                        <div class="card-text-sub">/singapore</div>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a class="card"
+                   href="https://contoh-link-3.com"
+                   target="_blank"
+                   rel="noopener">
+                    <div class="card-logo">
+                        <img src="https://i.ibb.co/9VPSz77/smiley.png"
+                             alt="Dynamic SSH">
+                    </div>
+                    <div>
+                        <div class="card-text-main">Dynamic SSH</div>
+                        <div class="card-text-sub">/create-ssh-ssl</div>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a class="card"
+                   href="https://contoh-link-4.com"
+                   target="_blank"
+                   rel="noopener">
+                    <div class="card-logo">
+                        <img src="https://i.ibb.co/9VPSz77/smiley.png"
+                             alt="Sky SSH">
+                    </div>
+                    <div>
+                        <div class="card-text-main">Sky SSH</div>
+                        <div class="card-text-sub">/ssh</div>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a class="card"
+                   href="https://contoh-link-5.com"
+                   target="_blank"
+                   rel="noopener">
+                    <div class="card-logo">
+                        <img src="https://i.ibb.co/5Lcnc4T/vpn-jantit.png"
+                             alt="Vpn Jantit">
+                    </div>
+                    <div>
+                        <div class="card-text-main">Vpn Jantit</div>
+                        <div class="card-text-sub">/premium-ssh-indonesia</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div class="footer-line"></div>
+                powered by: MWPROJECT
+            </footer>
+        </main>
+    </div>
+
+    <!-- HLS.js untuk memutar m3u8 di browser non-Safari -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        (function () {
+            var video = document.getElementById("bg-video");
+            var videoSrc = "https://inspiratv.siar.us/inspiratv/live/playlist.m3u8";
+
+            if (video.canPlayType("application/vnd.apple.mpegurl")) {
+                // Safari, iOS
+                video.src = videoSrc;
+            } else if (Hls.isSupported()) {
+                // Browser lain menggunakan Hls.js
+                var hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+            } else {
+                console.warn("Browser ini tidak mendukung pemutaran m3u8.");
+            }
+        })();
+    </script>
+</body>
+</html>
