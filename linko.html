@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APLIKASI IJO GAMES</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: url('https://source.unsplash.com/1080x1920/?technology') no-repeat center center fixed;
+      background-size: cover;
+      padding: 0;
+      margin: 0;
+    }
+    header {
+      background-color: black;
+      color: rgb(0, 255, 0);
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .menu {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .hamburger {
+      font-size: 30px;
+      cursor: pointer;
+      margin-right: auto;
+      color: #444;
+    }
+    .menu-dropdown {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      background-color: #fff;
+      margin-top: 50px;
+      margin-left: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .menu-dropdown a {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+    .menu-dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+    .admin-button {
+      background: #ccc;
+      margin: 10px auto;
+      padding: 10px 25px;
+      border-radius: 20px;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .card {
+      background-color: rgba(173, 216, 230, 0.8); /* LightBlue with transparency */
+      margin: 15px 20px;
+      padding: 15px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .card-content {
+      color: #333;
+    }
+    .card-content b {
+      font-size: 18px;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #333;
+      background-color: rgba(255,255,255,0.8);
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    .social-icons {
+      margin-top: 10px;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      color: #444;
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>APLIKASI IJO GAMES</header>
+
+  <div class="menu">
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <div class="menu-dropdown" id="menuDropdown">
+      <a href="https://example.com/informasi" target="_blank">Informasi</a>
+      <a href="https://example.com/tentang" target="_blank">Tentang</a>
+      <a href="https://example.com/hubungi-admin" target="_blank">Hubungi Admin</a>
+    </div>
+  </div>
+
+  <div class="admin-button" onclick="window.open('https://wa.me/6281234567890', '_blank')">
+    klik disini (admin)
+  </div>
+
+  <!-- Card items -->
+  <div class="card" onclick="window.open('https://example.com/create-ssh-ssl', '_blank')">
+    <img src="https://i.ibb.co/d6LrC9g/default.png" alt="icon">
+    <div class="card-content">
+      <b>Dynamic SSH</b><br/>
+      /create-ssh-ssl
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('https://example.com/singapore', '_blank')">
+    <img src="https://i.ibb.co/d6LrC9g/default.png" alt="icon">
+    <div class="card-content">
+      <b>SSH Dropbear</b><br/>
+      /singapore
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('https://example.com/create-ssh-ssl', '_blank')">
+    <img src="https://i.ibb.co/d6LrC9g/default.png" alt="icon">
+    <div class="card-content">
+      <b>Dynamic SSH</b><br/>
+      /create-ssh-ssl
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('https://example.com/ssh', '_blank')">
+    <img src="https://i.ibb.co/d6LrC9g/default.png" alt="icon">
+    <div class="card-content">
+      <b>Sky SSH</b><br/>
+      /ssh
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('https://example.com/premium-ssh-indonesia', '_blank')">
+    <img src="https://i.ibb.co/d6LrC9g/default.png" alt="icon">
+    <div class="card-content">
+      <b>Vpn Jantit</b><br/>
+      /premium-ssh-indonesia
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    powered by: MWPROJECT
+    <div class="social-icons">
+      <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://t.me/username" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+      <a href="https://example.com" target="_blank"><i class="fas fa-globe"></i></a>
+      <a href="https://example.com/share" target="_blank"><i class="fas fa-share-alt"></i></a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuDropdown');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+
+</body>
+</html>
