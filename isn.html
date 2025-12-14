@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -40,6 +41,7 @@
             border-bottom-right-radius: 30px;
             position: relative;
             z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .rgb-text {
@@ -58,9 +60,28 @@
             100% { color: #00ff00; } /* Hijau */
         }
 
+        /* --- RUNNING TEXT --- */
+        .running-text-wrapper {
+            background-color: rgba(255, 255, 255, 0.35); /* Transparansi 35% */
+            padding: 5px 0;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-top: 5px; /* Jarak agar tidak nempel header */
+            z-index: 5;
+            margin-bottom: 5px;
+        }
+
+        .running-text {
+            color: #555;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
         /* --- MENU HAMBURGER & NAVIGATION --- */
         .nav-bar {
-            padding: 15px 20px;
+            padding: 10px 20px;
             position: relative;
             background: transparent;
         }
@@ -76,11 +97,11 @@
         .hamburger div {
             width: 100%;
             height: 5px;
-            background-color: #999; /* Warna abu-abu seperti di gambar */
+            background-color: #999;
             border-radius: 5px;
         }
 
-        /* Side Menu (Hidden by default) */
+        /* Side Menu */
         .side-menu {
             height: 100%;
             width: 0;
@@ -119,30 +140,11 @@
             text-decoration: none;
         }
 
-        /* --- RUNNING TEXT --- */
-        .running-text-wrapper {
-            background-color: rgba(255, 255, 255, 0.35); /* Transparansi 35% */
-            padding: 5px 0;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            margin-top: -15px; /* Supaya nempel di bawah header hitam sedikit */
-            z-index: 5;
-            margin-bottom: 10px;
-        }
-
-        .running-text {
-            color: #555; /* Mirip warna teks admin */
-            font-size: 12px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        /* --- TOMBOL ADMIN (KLIK DISINI) --- */
+        /* --- TOMBOL ADMIN --- */
         .admin-section {
             position: relative;
             text-align: center;
-            margin: 10px 0 30px 0;
+            margin: 0px 0 30px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -160,7 +162,7 @@
         .admin-btn {
             position: relative;
             z-index: 2;
-            background-color: #e6e6e6; /* Abu-abu muda */
+            background-color: #e6e6e6;
             color: #555;
             padding: 10px 30px;
             border-radius: 20px;
@@ -179,8 +181,11 @@
             gap: 15px;
         }
 
+        /* --- CARD (DIPERBARUI) --- */
         .card {
-            /* Warna biru muda transparan 20% (Opacity 80%) */
+            width: 88%; /* Lebar dikurangi 12% (100% - 12%) */
+            margin: 0 auto; /* Posisi tengah */
+            
             background-color: rgba(176, 224, 230, 0.8); 
             border-radius: 15px;
             padding: 15px;
@@ -200,7 +205,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background-color: #2daae1; /* Warna biru imgbb */
+            background-color: #2daae1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -267,7 +272,6 @@
             transition: color 0.3s;
         }
         
-        /* Warna Logo Asli saat hover */
         .social-btn.yt:hover { color: #ff0000; }
         .social-btn.wa:hover { color: #25D366; }
         .social-btn.tg:hover { color: #0088cc; }
@@ -283,7 +287,7 @@
         <div class="rgb-text">APLIKASI IJO GAMES</div>
     </div>
 
-    <!-- Running Text (Di bawah header hitam) -->
+    <!-- Running Text -->
     <div class="running-text-wrapper">
         <marquee class="running-text" scrollamount="5">MWPROJECT WEBSITE</marquee>
     </div>
@@ -300,16 +304,14 @@
     <!-- Side Menu Overlay -->
     <div id="mySidenav" class="side-menu">
         <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-        <!-- Tautan Menu Hamburger -->
         <a href="https://google.com">Informasi</a>
         <a href="https://google.com">Tentang</a>
         <a href="https://wa.me/6281234567890">Hubungi Admin</a>
     </div>
 
-    <!-- Tombol Admin (Klik Disini) -->
+    <!-- Tombol Admin -->
     <div class="admin-section">
         <div class="line"></div>
-        <!-- Tautan ke Whatsapp Admin -->
         <a href="https://wa.me/6281234567890" class="admin-btn">klik disini (admin)</a>
     </div>
 
@@ -319,7 +321,6 @@
         <!-- Kartu 1 -->
         <a href="https://google.com" class="card">
             <div class="card-img">
-                <!-- Ganti src dengan link gambar logo -->
                 <img src="https://i.ibb.co/vzjgk2j/placeholder.png" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='IMG'">
             </div>
             <div class="card-content">
@@ -386,7 +387,6 @@
         </div>
     </div>
 
-    <!-- Script Javascript untuk Menu -->
     <script>
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
@@ -398,4 +398,4 @@
     </script>
 
 </body>
-</html>
+    </html>
