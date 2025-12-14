@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrar TV Clone</title>
+    <!-- Menggunakan FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Menggunakan Font Google untuk kemiripan teks -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    
+    <style>
+        /* RESET & DASAR */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 10px;
+            background-color: #000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            color: #ccc;
+        }
+
+        .app-logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family: sans-serif; /* Fallback */
+        }
+
+        .logo-red {
+            color: #d81b28;
+            font-family: 'Rubik Glitch', cursive; /* Efek teks rusak mirip asli */
+            font-size: 26px;
+        }
+        
+        .logo-white {
+            color: #fff;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .no-ads {
+            border: 2px solid #d81b28;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #fff;
+            position: relative;
+        }
+        .no-ads::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #d81b28;
+            transform: rotate(45deg);
+        }
+
+        /* GRID LAYOUT */
+        .container {
+            padding: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px 10px; /* Jarak vertikal 15px, horizontal 10px */
+        }
+
+        /* CARD STYLE */
+        .channel-link {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-box {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* Membuat kotak persegi sempurna */
+            border: 2px solid #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background-color: #111;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* LOGO STYLES (Meniru gambar asli dengan CSS) */
+        .bg-purple { background: linear-gradient(135deg, #4b1e7a, #6c32a0); }
+        .bg-white { background: #fff; color: #d81b28; }
+        .bg-maroon { background: #7a0026; }
+        .bg-blue-dark { background: #000d38; }
+        .bg-orange { background: #f2571c; }
+        .bg-teal { background: #00cba9; }
+        .bg-teal-dark { background: #00a8a8; }
+        .bg-red { background: #ff0000; }
+        .bg-sony { background: linear-gradient(to bottom, #8a2be2, #fff); }
+        .bg-nba { background: #005eb8; }
+
+        /* Text Styles inside logos */
+        .logo-text-lg { font-size: 24px; font-weight: bold; }
+        .logo-text-md { font-size: 18px; font-weight: bold; }
+        .logo-text-sm { font-size: 12px; font-weight: bold; }
+        
+        .bein-logo { font-family: sans-serif; letter-spacing: -1px; }
+        .live-btn { background: red; color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px; display: inline-flex; align-items: center; gap: 4px; }
+        .thmanyah-logo { font-size: 30px; }
+        .espn-logo { font-family: sans-serif; font-style: italic; font-weight: 900; font-size: 28px; letter-spacing: -2px; border-top: 2px solid white; padding-top: 2px; }
+        .turk-moon { font-size: 40px; }
+        
+        /* Label di bawah kotak */
+        .label {
+            font-size: 13px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            font-weight: 500;
+        }
+
+        .flag {
+            font-size: 12px;
+            margin-left: 4px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <i class="fas fa-bars menu-icon"></i>
+            <div class="app-logo">
+                <span class="logo-red">ADRAR</span> <span class="logo-white">TV</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="no-ads">ADS</div>
+            <button class="icon-btn"><i class="fas fa-paper-plane"></i></button>
+            <button class="icon-btn"><i class="fas fa-share"></i></button>
+            <button class="icon-btn"><i class="fas fa-bell"></i></button>
+        </div>
+    </div>
+
+    <!-- CONTENT GRID -->
+    <div class="container">
+        <div class="grid">
+
+            <!-- Item 1: beIN Sports -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-purple">
+                    <div class="card-content">
+                        <div style="background:white; color:#4b1e7a; padding: 2px 8px; border-radius: 15px; font-weight:bold; font-size:14px;">beIN SPORTS</div>
+                    </div>
+                </div>
+                <div class="label">beIN Sports <span class="flag">🇶🇦</span></div>
+            </a>
+
+            <!-- Item 2: LIVE MATCHES -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-white">
+                    <div class="card-content">
+                        <div class="live-btn"><i class="fas fa-play-circle"></i> LIVE</div>
+                    </div>
+                </div>
+                <div class="label">LIVE MATCHES</div>
+            </a>
+
+            <!-- Item 3: Arab Cup -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-maroon">
+                    <div class="card-content">
+                        <i class="fas fa-trophy" style="font-size: 30px; margin-bottom: 5px;"></i>
+                        <div class="logo-text-sm">FIFA ARAB CUP</div>
+                        <div style="font-size: 8px;">QATAR 2025</div>
+                    </div>
+                </div>
+                <div class="label">كأس العرب</div>
+            </a>
+
+            <!-- Item 4: Champions League -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-blue-dark">
+                    <div class="card-content">
+                        <i class="far fa-futbol" style="font-size: 35px; margin-bottom: 5px;"></i>
+                        <div style="font-size: 9px; line-height: 1.2;">UEFA<br>CHAMPIONS<br>LEAGUE</div>
+                    </div>
+                </div>
+                <div class="label">Champions LG</div>
+            </a>
+
+            <!-- Item 5: Thmanyah -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-orange">
+                    <div class="card-content">
+                        <i class="fas fa-mountain" style="font-size: 24px;"></i>
+                        <div class="thmanyah-logo">ثمانية</div>
+                    </div>
+                </div>
+                <div class="label">Thmanyah <span class="flag">🇸🇦</span></div>
+            </a>
+
+            <!-- Item 6: Shahid Sports -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-teal">
+                    <div class="card-content">
+                        <div class="logo-text-md">شاهد</div>
+                        <div style="font-size: 10px; letter-spacing: 2px;">SPORTS</div>
+                    </div>
+                </div>
+                <div class="label">Shahid Sports <span class="flag">🇸🇦</span></div>
+            </a>
+
+            <!-- Item 7: Arab Sports -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-orange">
+                    <div class="card-content">
+                        <i class="fas fa-globe-asia" style="font-size: 40px; color: white; opacity: 0.8;"></i>
+                    </div>
+                </div>
+                <div class="label">Arab Sports</div>
+            </a>
+
+            <!-- Item 8: STARZPLAY -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-teal-dark">
+                    <div class="card-content">
+                        <div style="font-weight: 900; font-size: 14px;">STARZPLAY</div>
+                        <div style="font-weight: 900; font-size: 14px; color: #fff;">SPORTS</div>
+                    </div>
+                </div>
+                <div class="label">STARZPLAY <span class="flag">🇦🇪</span></div>
+            </a>
+
+            <!-- Item 9: Turk Sports -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-red">
+                    <div class="card-content">
+                        <div class="turk-moon"><i class="far fa-moon"></i> <i class="fas fa-star" style="font-size: 20px;"></i></div>
+                    </div>
+                </div>
+                <div class="label">Turk Sports <span class="flag">🇹🇷</span></div>
+            </a>
+
+            <!-- Item 10: ESPN US -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-red">
+                    <div class="card-content">
+                        <div class="espn-logo">ESPN</div>
+                    </div>
+                </div>
+                <div class="label">ESPN <span class="flag">🇺🇸 🇿🇦</span></div>
+            </a>
+
+            <!-- Item 11: ESPN MX -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-red">
+                    <div class="card-content">
+                        <div class="espn-logo">ESPN</div>
+                    </div>
+                </div>
+                <div class="label">ESPN <span class="flag">🇲🇽 🇦🇷</span></div>
+            </a>
+
+            <!-- Item 12: ESPN BR -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-red">
+                    <div class="card-content">
+                        <div class="espn-logo">ESPN</div>
+                    </div>
+                </div>
+                <div class="label">ESPN <span class="flag">🇧🇷</span></div>
+            </a>
+
+            <!-- Item 13: ESPN Generic -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-red">
+                    <div class="card-content">
+                        <div class="espn-logo">ESPN</div>
+                    </div>
+                </div>
+                <!-- Simulating clipped text at bottom -->
+            </a>
+
+            <!-- Item 14: SONY -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-sony">
+                    <div class="card-content">
+                        <div style="font-weight: bold; font-family: serif; font-size: 18px; margin-top: -20px;">SONY</div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Item 15: NBA -->
+            <a href="https://rebrand.ly" class="channel-link">
+                <div class="card-box bg-nba">
+                    <div class="card-content">
+                        <div style="font-weight: 900; font-size: 24px; font-family: sans-serif; writing-mode: vertical-rl; transform: rotate(180deg);">NBA</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+    </html>
