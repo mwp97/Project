@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konverter Teks ke Binary</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            box-sizing: border-box; /* Agar padding tidak melebarkan elemen */
+            resize: vertical;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button.secondary {
+            background-color: #28a745;
+        }
+        button.secondary:hover {
+            background-color: #218838;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Teks ke Binary</h1>
+
+        <!-- Input Teks -->
+        <label for="inputText">Masukkan Teks:</label>
+        <textarea id="inputText" placeholder="Ketik sesuatu di sini..."></textarea>
+
+        <!-- Tombol Konversi -->
+        <button onclick="convertToBinary()">Konversi ke Binary</button>
+
+        <!-- Output Binary -->
+        <label for="outputBinary">Hasil Binary:</label>
+        <textarea id="outputBinary" readonly placeholder="Hasil konversi akan muncul di sini..."></textarea>
+
+        <!-- Tombol Salin -->
+        <button class="secondary" onclick="copyToClipboard()">Salin Hasil</button>
+    </div>
+
+    <script>
+        function convertToBinary() {
+            // Mengambil teks dari input
+            const text = document.getElementById("inputText").value;
+            
+            if (text === "") {
+                document.getElementById("outputBinary").value = "";
+                return;
+            }
+
+            // Logika konversi
+            // 1. Ubah string menjadi array karakter
+            // 2. Ambil kode ASCII setiap karakter (charCodeAt)
+            // 3. Ubah angka desimal menjadi biner (toString(2))
+            // 4. Tambahkan padding '0' di depan agar panjangnya 8 bit (1 byte)
+            // 5. Gabungkan kembali dengan spasi
+            const binaryOutput = text
+                .split("")
+                .map(char => {
+                    const charCode = char.charCodeAt(0);
+                    return charCode.toString(2).padStart(8, '0');
+                })
+                .join(" ");
+
+            // Menampilkan hasil
+            document.getElementById("outputBinary").value = binaryOutput;
+        }
+
+        function copyToClipboard() {
+            const outputText = document.getElementById("outputBinary");
+            outputText.select();
+            outputText.setSelectionRange(0, 99999); // Untuk mobile
+            navigator.clipboard.writeText(outputText.value).then(() => {
+                alert("Berhasil disalin ke clipboard!");
+            });
+        }
+    </script>
+
+</body>
+</html>
